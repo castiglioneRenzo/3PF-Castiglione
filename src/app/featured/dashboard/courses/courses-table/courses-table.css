@@ -1,0 +1,102 @@
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.button-column {
+  flex: 0 0 auto;
+  padding-bottom: 1.25rem;
+}
+
+.filter-column {
+  flex: 0 0 auto;
+}
+
+#create {
+  margin-bottom: 0;
+}
+
+mat-form-field {
+  margin-bottom: 0;
+}
+
+/* Estilos para el filtro */
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: #16213e !important;
+}
+
+::ng-deep .mat-mdc-form-field {
+  color: #e0e0e0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+::ng-deep .mdc-text-field--filled {
+  background-color: #16213e !important;
+}
+
+::ng-deep .mat-mdc-form-field-label,
+::ng-deep .mat-mdc-floating-label {
+  color: #e0e0e0 !important;
+}
+
+::ng-deep .mat-mdc-input-element {
+  color: #ffffff !important;
+  caret-color: #53a8e2 !important;
+}
+
+::ng-deep .mat-mdc-input-element::placeholder {
+  color: rgba(224, 224, 224, 0.6) !important;
+}
+
+::ng-deep .mdc-line-ripple::after {
+  border-bottom-color: #53a8e2 !important;
+}
+
+table {
+  width: 100%;
+  background-color: #16213e;
+  color: #e0e0e0;
+}
+
+.mat-elevation-z8 {
+  margin-top: 1rem;
+  background-color: #16213e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para las filas de la tabla */
+::ng-deep .mat-mdc-row:hover {
+  background-color: rgba(83, 168, 226, 0.1) !important;
+}
+
+::ng-deep .mat-mdc-header-row {
+  background-color: #0f3460 !important;
+}
+
+::ng-deep .mat-mdc-header-cell {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+::ng-deep .mat-mdc-cell {
+  color: #e0e0e0 !important;
+}
+
+::ng-deep .mat-mdc-paginator {
+  background-color: #16213e !important;
+  color: #e0e0e0 !important;
+}
+
+::ng-deep .mat-mdc-paginator-icon {
+  fill: #e0e0e0 !important;
+}
+
+::ng-deep .mat-mdc-select-value,
+::ng-deep .mat-mdc-select-arrow {
+  color: #e0e0e0 !important;
+}

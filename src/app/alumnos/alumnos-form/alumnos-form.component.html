@@ -1,0 +1,57 @@
+<div class="container">
+  <mat-card class="form-container">
+    <mat-card-header>
+      <mat-card-title titleSize>Crear Nuevo Alumno</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="alumnoForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" placeholder="Ingrese el nombre" />
+            <mat-error
+              *ngIf="alumnoForm.get('nombre')?.invalid && alumnoForm.get('nombre')?.touched"
+            >
+              {{ getErrorMessage('nombre') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="apellido" placeholder="Ingrese el apellido" />
+            <mat-error
+              *ngIf="alumnoForm.get('apellido')?.invalid && alumnoForm.get('apellido')?.touched"
+            >
+              {{ getErrorMessage('apellido') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="ejemplo@email.com" />
+            <mat-error *ngIf="alumnoForm.get('email')?.invalid && alumnoForm.get('email')?.touched">
+              {{ getErrorMessage('email') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Edad</mat-label>
+            <input matInput type="number" formControlName="edad" placeholder="Ingrese la edad" />
+            <mat-error *ngIf="alumnoForm.get('edad')?.invalid && alumnoForm.get('edad')?.touched">
+              {{ getErrorMessage('edad') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="alumnoForm.invalid">
+            Crear Alumno
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

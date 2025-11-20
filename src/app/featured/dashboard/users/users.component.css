@@ -1,0 +1,44 @@
+.users-container {
+  padding: 24px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.role-admin {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.role-user {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.loading {
+  text-align: center;
+  padding: 24px;
+  color: rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,11 @@
+.active-link {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+mat-list-item {
+  cursor: pointer;
+}
+
+mat-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

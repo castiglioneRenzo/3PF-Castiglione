@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 titleSize>Lista de Alumnos ({{ alumnos.length }})</h2>
+
+  <mat-table [dataSource]="alumnos" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef titleSize> ID </mat-header-cell>
+      <mat-cell *matCellDef="let alumno"> {{ alumno.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef titleSize> Nombre Completo </mat-header-cell>
+      <mat-cell *matCellDef="let alumno">
+        {{ alumno.nombre | nombreCompleto : alumno.apellido }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef titleSize> Email </mat-header-cell>
+      <mat-cell *matCellDef="let alumno"> {{ alumno.email }} </mat-cell>
+    </ng-container>
+
+    <!-- Edad Column -->
+    <ng-container matColumnDef="edad">
+      <mat-header-cell *matHeaderCellDef titleSize> Edad </mat-header-cell>
+      <mat-cell *matCellDef="let alumno"> {{ alumno.edad }} años </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

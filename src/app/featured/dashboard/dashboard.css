@@ -1,0 +1,192 @@
+/* Contenedor principal del drawer */
+.drawer-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1a2e;
+}
+
+/* Sidenav (menú lateral) */
+.sidenav {
+  width: 250px;
+  padding: 1rem 0;
+  background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
+  color: white;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.sidenav h4 {
+  padding: 0 1rem 1rem 1rem;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Lista de navegación */
+mat-nav-list {
+  padding-top: 0;
+}
+
+mat-nav-list a {
+  color: rgba(255, 255, 255, 0.95) !important;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  margin: 0.25rem 0;
+}
+
+mat-nav-list a:hover {
+  background-color: rgba(83, 168, 226, 0.15) !important;
+  border-left-color: #53a8e2;
+  color: #ffffff !important;
+}
+
+mat-nav-list a.active,
+mat-nav-list a[aria-current="page"] {
+  background-color: rgba(83, 168, 226, 0.25) !important;
+  border-left-color: #53a8e2;
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+mat-nav-list a span[matlistitemline] {
+  color: #ffffff; /* Cambia este valor al color que desees */
+}
+
+mat-nav-list mat-icon {
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin-right: 0.5rem;
+}
+
+/* Toolbar */
+mat-toolbar {
+  background: linear-gradient(90deg, #0f3460 0%, #16213e 100%) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+mat-toolbar button {
+  color: white !important;
+}
+
+mat-toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+mat-toolbar mat-icon {
+  color: white !important;
+}
+
+/* Contenido principal */
+.main-content {
+  padding: 2rem;
+  min-height: calc(100vh - 64px);
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  overflow-y: auto;
+}
+
+/* Títulos dentro del contenido */
+.main-content h1 {
+  color: #53a8e2;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2d2d44;
+}
+
+/* Dashboard cards - para la página de inicio */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card mat-card-content {
+  text-align: center;
+  padding: 30px;
+}
+
+.dashboard-card mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  color: #53a8e2;
+}
+
+.dashboard-card h3 {
+  margin: 15px 0 10px 0;
+  color: #53a8e2;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #53a8e2;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 200px;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .main-content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidenav {
+    width: 100%;
+  }
+
+  .sidenav h4 {
+    font-size: 1.1rem;
+  }
+
+  .main-content {
+    padding: 0.75rem;
+  }
+
+  .main-content h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Scrollbar personalizado */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: #16213e;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #53a8e2;
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #6bb8ed;
+}

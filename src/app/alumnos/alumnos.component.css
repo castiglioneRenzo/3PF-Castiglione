@@ -1,0 +1,14 @@
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.content-area {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #1976d2;
+  margin-bottom: 20px;
+}

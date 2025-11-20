@@ -1,0 +1,81 @@
+<div class="login-container">
+  <mat-card class="login-card" role="main" aria-labelledby="login-title">
+    <div class="avatar" aria-hidden="true">
+      <mat-icon>person</mat-icon>
+    </div>
+
+    <mat-card-header>
+      <mat-card-title id="login-title">Iniciar sesión</mat-card-title>
+      <mat-card-subtitle>Accede a tu cuenta para continuar</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="nombre@ejemplo.com"
+            type="email"
+            aria-label="Email"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.invalid">
+            {{ getErrorMessage('email') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Tu contraseña"
+            [type]="hidePassword ? 'password' : 'text'"
+            aria-label="Contraseña"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            type="button"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+          >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.invalid">
+            {{ getErrorMessage('password') }}
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="error$ | async as error" class="error-message">
+          <mat-icon>error</mat-icon>
+          <span>{{ error }}</span>
+        </div>
+
+        <div class="options-row">
+          <mat-checkbox formControlName="remember" class="remember">Recordarme</mat-checkbox>
+          <a class="forgot" href="#">Olvidé mi contraseña</a>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        class="full-width"
+        (click)="onSubmit()"
+        [disabled]="(loading$ | async) || loginForm.invalid"
+      >
+        <span *ngIf="!(loading$ | async)">Iniciar sesión</span>
+        <span *ngIf="loading$ | async">Cargando...</span>
+      </button>
+    </mat-card-actions>
+
+    <mat-card-footer class="login-card-footer">
+      <small>Al continuar aceptas los términos y condiciones.</small>
+    </mat-card-footer>
+  </mat-card>
+</div>

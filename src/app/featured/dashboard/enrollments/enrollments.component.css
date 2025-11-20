@@ -1,0 +1,33 @@
+.enrollments-container {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.status-active {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.status-completed {
+  color: #2196f3;
+  font-weight: 500;
+}
+
+.status-cancelled {
+  color: #f44336;
+  font-weight: 500;
+}

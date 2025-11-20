@@ -1,0 +1,37 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened="true">
+    <h4>CursosApp</h4>
+
+    <mat-nav-list>
+      @for (item of listItems; track $index) {
+      <a mat-list-item [routerLink]="item.url" routerLinkActive="active">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemLine>{{ item.name }}</span>
+      </a>
+      } @if (isAuthenticated()) {
+      <a mat-list-item (click)="onLogout()">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span matListItemLine>Logout</span>
+      </a>
+      }
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div>
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        class="icon text-white"
+        aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      Cursos y Estudiantes
+    </mat-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

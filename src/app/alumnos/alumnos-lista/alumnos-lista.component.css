@@ -1,0 +1,13 @@
+mat-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-header-cell, mat-cell {
+  padding: 15px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #1976d2;
+}

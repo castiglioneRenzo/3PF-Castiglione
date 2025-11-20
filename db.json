@@ -1,0 +1,186 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@test.com",
+      "password": "admin123",
+      "firstName": "Admin",
+      "lastName": "Sistema",
+      "role": "admin",
+      "active": true,
+      "createdAt": "2025-11-19T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "user@test.com",
+      "password": "user123",
+      "firstName": "Usuario",
+      "lastName": "Normal",
+      "role": "user",
+      "active": true,
+      "createdAt": "2025-11-19T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "profesor@test.com",
+      "password": "profesor123",
+      "firstName": "Carlos",
+      "lastName": "Martínez",
+      "role": "user",
+      "active": true,
+      "createdAt": "2025-11-19T00:00:00.000Z"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@example.com",
+      "phone": "+54 11 4567-8901",
+      "address": "Av. Corrientes 1234, Buenos Aires",
+      "birthDate": "2000-05-15",
+      "enrollmentDate": "2023-03-01",
+      "active": true
+    },
+    {
+      "id": 2,
+      "firstName": "María",
+      "lastName": "González",
+      "email": "maria.gonzalez@example.com",
+      "phone": "+54 11 4567-8902",
+      "address": "Av. Santa Fe 5678, Buenos Aires",
+      "birthDate": "2001-08-22",
+      "enrollmentDate": "2023-03-01",
+      "active": true
+    },
+    {
+      "id": 3,
+      "firstName": "Pedro",
+      "lastName": "Rodríguez",
+      "email": "pedro.rodriguez@example.com",
+      "phone": "+54 11 4567-8903",
+      "address": "Calle Florida 910, Buenos Aires",
+      "birthDate": "1999-12-10",
+      "enrollmentDate": "2023-03-01",
+      "active": true
+    },
+    {
+      "id": 4,
+      "firstName": "Ana",
+      "lastName": "López",
+      "email": "ana.lopez@example.com",
+      "phone": "+54 11 4567-8904",
+      "address": "Av. Rivadavia 2345, Buenos Aires",
+      "birthDate": "2002-03-18",
+      "enrollmentDate": "2023-03-15",
+      "active": true
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Angular Avanzado",
+      "description": "Curso completo de Angular con NgRx, RxJS y mejores prácticas",
+      "duration": 120,
+      "startDate": "2025-01-15",
+      "endDate": "2025-06-30",
+      "maxStudents": 30,
+      "instructor": "Prof. Roberto Sánchez",
+      "schedule": "Lunes y Miércoles 18:00-21:00",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "TypeScript Fundamentos",
+      "description": "Aprende TypeScript desde cero hasta conceptos avanzados",
+      "duration": 60,
+      "startDate": "2025-02-01",
+      "endDate": "2025-04-30",
+      "maxStudents": 25,
+      "instructor": "Prof. Laura Fernández",
+      "schedule": "Martes y Jueves 19:00-21:00",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Node.js y Express",
+      "description": "Desarrollo backend con Node.js y Express framework",
+      "duration": 90,
+      "startDate": "2025-03-01",
+      "endDate": "2025-06-15",
+      "maxStudents": 20,
+      "instructor": "Prof. Diego Morales",
+      "schedule": "Viernes 18:00-22:00",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "React Profesional",
+      "description": "Desarrollo de aplicaciones con React, Redux y Hooks",
+      "duration": 100,
+      "startDate": "2025-02-10",
+      "endDate": "2025-06-10",
+      "maxStudents": 30,
+      "instructor": "Prof. Sofía Ramírez",
+      "schedule": "Lunes y Miércoles 19:00-21:30",
+      "active": true
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1,
+      "enrollmentDate": "2025-01-10",
+      "status": "active",
+      "grade": null,
+      "notes": "Alumno destacado"
+    },
+    {
+      "id": 2,
+      "studentId": 1,
+      "courseId": 2,
+      "enrollmentDate": "2025-01-25",
+      "status": "active",
+      "grade": null,
+      "notes": ""
+    },
+    {
+      "id": 3,
+      "studentId": 2,
+      "courseId": 1,
+      "enrollmentDate": "2025-01-10",
+      "status": "active",
+      "grade": null,
+      "notes": ""
+    },
+    {
+      "id": 4,
+      "studentId": 2,
+      "courseId": 3,
+      "enrollmentDate": "2025-02-28",
+      "status": "active",
+      "grade": null,
+      "notes": ""
+    },
+    {
+      "id": 5,
+      "studentId": 3,
+      "courseId": 2,
+      "enrollmentDate": "2025-01-28",
+      "status": "active",
+      "grade": null,
+      "notes": ""
+    },
+    {
+      "id": 6,
+      "studentId": 4,
+      "courseId": 4,
+      "enrollmentDate": "2025-02-05",
+      "status": "active",
+      "grade": null,
+      "notes": "Primera inscripción"
+    }
+  ]
+}

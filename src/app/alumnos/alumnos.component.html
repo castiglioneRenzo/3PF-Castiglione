@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 titleSize>Gestión de Alumnos</h2>
+
+  <!-- Botones de navegación -->
+  <div class="nav-buttons">
+    <button
+      mat-raised-button
+      [color]="!mostrarFormulario ? 'primary' : ''"
+      (click)="onMostrarLista()"
+    >
+      Ver Lista de Alumnos
+    </button>
+    <button
+      mat-raised-button
+      [color]="mostrarFormulario ? 'primary' : ''"
+      (click)="onMostrarFormulario()"
+    >
+      Crear Nuevo Alumno
+    </button>
+  </div>
+
+  <!-- Mostrar Lista o Formulario según el estado -->
+  <div class="content-area">
+    <app-alumnos-lista *ngIf="!mostrarFormulario" [alumnos]="alumnos"> </app-alumnos-lista>
+
+    <app-alumno-form *ngIf="mostrarFormulario" (alumnoCreado)="onAlumnoCreado($event)">
+    </app-alumno-form>
+  </div>
+</div>
