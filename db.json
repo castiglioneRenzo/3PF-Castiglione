@@ -29,6 +29,16 @@
       "role": "user",
       "active": true,
       "createdAt": "2025-11-19T00:00:00.000Z"
+    },
+    {
+      "id": "9e85",
+      "email": "renzo@test.com",
+      "password": "admin123",
+      "firstName": "Renzo",
+      "lastName": "Castiglione",
+      "role": "admin",
+      "active": true,
+      "createdAt": "2025-11-27T02:08:21.339Z"
     }
   ],
   "students": [
