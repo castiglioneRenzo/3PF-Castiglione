@@ -46,20 +46,6 @@ export class EnrollmentsComponent implements OnInit {
       this.courses$
     ]).pipe(
       map(([enrollments, students, courses]) => {
-        console.log('Enrollments:', enrollments);
-        console.log('Students:', students);
-        console.log('Courses:', courses);
-        const e = enrollments.map(enrollment => {
-          const student = students.find(s => String(s.id) === String(enrollment.studentId));
-          const course = courses.find(c => String(c.id) === String(enrollment.courseId));
-          return {
-            ...enrollment,
-            studentName: student ? `${student.firstName} ${student.lastName}` : 'N/A',
-            courseName: course ? course.name : 'N/A',
-            grade: enrollment.grade === null || enrollment.grade === undefined ? 'N/A' : enrollment.grade
-          };
-        });
-        console.log('Enrollments View:', e);
         return enrollments.map(enrollment => {
           const student = students.find(s => String(s.id) === String(enrollment.studentId));
           const course = courses.find(c => String(c.id) === String(enrollment.courseId));
@@ -82,9 +68,9 @@ export class EnrollmentsComponent implements OnInit {
 
 
 
-  onDelete(id: number): void {
+  onDelete(id: number | string): void {
     if (confirm('¿Estás seguro de eliminar esta inscripción?')) {
-      this.store.dispatch(EnrollmentsActions.deleteEnrollment({ id }));
+      this.store.dispatch(EnrollmentsActions.deleteEnrollment({ id: Number(id) }));
     }
   }
 }

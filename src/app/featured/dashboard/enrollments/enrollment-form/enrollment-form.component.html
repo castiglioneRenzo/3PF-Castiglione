@@ -1,0 +1,84 @@
+<div class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ isEditMode ? 'Editar Inscripción' : 'Nueva Inscripción' }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="enrollmentForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Selector de Estudiante -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Estudiante</mat-label>
+          <mat-select formControlName="studentId" [disabled]="isEditMode" [compareWith]="compareIds">
+            <mat-option *ngFor="let student of students$ | async" [value]="student.id">
+              {{ student.firstName }} {{ student.lastName }} - {{ student.email }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentId?.hasError('required')">
+            El estudiante es obligatorio
+          </mat-error>
+          <mat-hint *ngIf="isEditMode">No se puede cambiar el estudiante una vez inscrito</mat-hint>
+        </mat-form-field>
+
+        <!-- Selector de Curso -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Curso</mat-label>
+          <mat-select formControlName="courseId" [disabled]="isEditMode" [compareWith]="compareIds">
+            <mat-option *ngFor="let course of courses$ | async" [value]="course.id">
+              {{ course.name }} - {{ course.instructor }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="courseId?.hasError('required')">
+            El curso es obligatorio
+          </mat-error>
+          <mat-hint *ngIf="isEditMode">No se puede cambiar el curso una vez inscrito</mat-hint>
+        </mat-form-field>
+
+        <!-- Estado (solo en modo edición o visible siempre) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="active">Activo</mat-option>
+            <mat-option value="completed">Completado</mat-option>
+            <mat-option value="cancelled">Cancelado</mat-option>
+          </mat-select>
+          <mat-error *ngIf="status?.hasError('required')">
+            El estado es obligatorio
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Calificación -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Calificación (0-10)</mat-label>
+          <input matInput type="number" formControlName="grade" min="0" max="10" step="0.1">
+          <mat-error *ngIf="grade?.hasError('min')">
+            La calificación mínima es 0
+          </mat-error>
+          <mat-error *ngIf="grade?.hasError('max')">
+            La calificación máxima es 10
+          </mat-error>
+          <mat-hint>Dejar vacío si aún no tiene calificación</mat-hint>
+        </mat-form-field>
+
+        <!-- Notas -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Notas</mat-label>
+          <textarea matInput formControlName="notes" rows="4" placeholder="Observaciones adicionales"></textarea>
+        </mat-form-field>
+
+        <!-- Botones -->
+        <div class="form-actions">
+          <button mat-raised-button type="button" (click)="onCancel()">
+            Cancelar
+          </button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="enrollmentForm.invalid">
+            {{ isEditMode ? 'Actualizar' : 'Crear' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

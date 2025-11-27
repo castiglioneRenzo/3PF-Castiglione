@@ -1,7 +1,7 @@
 export type EnrollmentStatus = 'active' | 'completed' | 'cancelled';
 
 export interface Enrollment {
-  id: number;
+  id: number | string;
   studentId: number;
   courseId: number;
   enrollmentDate: string;

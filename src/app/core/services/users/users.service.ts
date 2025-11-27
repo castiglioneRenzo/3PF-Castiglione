@@ -15,7 +15,7 @@ export class UsersService {
     return this.http.get<User[]>(this.API_URL);
   }
 
-  getById(id: number): Observable<User> {
+  getById(id: number | string): Observable<User> {
     return this.http.get<User>(`${this.API_URL}/${id}`);
   }
 
@@ -28,11 +28,11 @@ export class UsersService {
     return this.http.post<User>(this.API_URL, newUser);
   }
 
-  update(id: number, user: Partial<User>): Observable<User> {
+  update(id: number | string, user: Partial<User>): Observable<User> {
     return this.http.patch<User>(`${this.API_URL}/${id}`, user);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: number | string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }

@@ -37,7 +37,7 @@ export const createEnrollmentFailure = createAction(
 // Update Enrollment
 export const updateEnrollment = createAction(
   '[Enrollments] Update Enrollment',
-  props<{ id: number; enrollment: UpdateEnrollmentDto }>()
+  props<{ id: number | string; enrollment: UpdateEnrollmentDto }>()
 );
 
 export const updateEnrollmentSuccess = createAction(
@@ -53,12 +53,12 @@ export const updateEnrollmentFailure = createAction(
 // Delete Enrollment
 export const deleteEnrollment = createAction(
   '[Enrollments] Delete Enrollment',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteEnrollmentSuccess = createAction(
   '[Enrollments] Delete Enrollment Success',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteEnrollmentFailure = createAction(

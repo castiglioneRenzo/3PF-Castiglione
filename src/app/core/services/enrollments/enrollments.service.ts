@@ -19,7 +19,7 @@ export class EnrollmentsService {
     return this.http.get<Enrollment[]>(this.API_URL);
   }
 
-  getById(id: number): Observable<Enrollment> {
+  getById(id: number | string): Observable<Enrollment> {
     return this.http.get<Enrollment>(`${this.API_URL}/${id}`);
   }
 
@@ -33,20 +33,21 @@ export class EnrollmentsService {
 
   create(enrollment: CreateEnrollmentDto): Observable<Enrollment> {
     const newEnrollment = {
-      ...enrollment,
+      studentId: Number(enrollment.studentId),
+      courseId: Number(enrollment.courseId),
       enrollmentDate: new Date().toISOString().split('T')[0],
-      status: 'active',
+      status: 'active' as const,
       grade: null,
       notes: enrollment.notes || '',
     };
     return this.http.post<Enrollment>(this.API_URL, newEnrollment);
   }
 
-  update(id: number, enrollment: UpdateEnrollmentDto): Observable<Enrollment> {
+  update(id: number | string, enrollment: UpdateEnrollmentDto): Observable<Enrollment> {
     return this.http.patch<Enrollment>(`${this.API_URL}/${id}`, enrollment);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: number | string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }
