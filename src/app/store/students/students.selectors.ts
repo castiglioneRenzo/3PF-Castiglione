@@ -18,10 +18,12 @@ export const selectStudentsError = createSelector(
   (state) => state.error
 );
 
+export const selectStudentById = (id: number | string) =>
+  createSelector(selectAllStudents, (students) =>
+    students.find((s) => String(s.id) === String(id))
+  );
+
 export const selectActiveStudents = createSelector(
   selectAllStudents,
   (students) => students.filter((s) => s.active)
 );
-
-export const selectStudentById = (id: number) =>
-  createSelector(selectAllStudents, (students) => students.find((s) => s.id === id));
