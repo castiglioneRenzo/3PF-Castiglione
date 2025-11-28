@@ -1,0 +1,270 @@
+.course-detail-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1976d2;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 16px;
+}
+
+.loading p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Información del curso */
+.course-info {
+  margin-bottom: 24px;
+}
+
+.course-info mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.course-info mat-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-item mat-icon {
+  color: #1976d2;
+  margin-top: 2px;
+}
+
+.info-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.info-item .label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.info-item .value {
+  font-size: 16px;
+  color: #333;
+}
+
+.course-code {
+  font-family: 'Courier New', monospace;
+  background: #e3f2fd;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+/* Estudiantes inscritos */
+.students-card {
+  margin-bottom: 24px;
+}
+
+.students-card mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.students-card mat-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e3f2fd;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.stats mat-icon {
+  color: #1976d2;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.stats span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1976d2;
+}
+
+.students-card table {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.student-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-name span {
+  font-weight: 500;
+  flex: 1;
+}
+
+.view-student-btn {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+tr:hover .view-student-btn {
+  opacity: 1;
+}
+
+.email,
+.date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.email mat-icon,
+.date mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: #999;
+}
+
+/* Sin datos */
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: #666;
+}
+
+.no-data mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  color: #bbb;
+}
+
+.no-data p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* No encontrado */
+.not-found {
+  margin-top: 40px;
+}
+
+.not-found mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.not-found mat-icon {
+  font-size: 72px;
+  width: 72px;
+  height: 72px;
+  color: #f44336;
+  margin-bottom: 16px;
+}
+
+.not-found h3 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.not-found p {
+  margin: 0 0 24px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .course-detail-container {
+    padding: 12px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .students-card mat-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .stats {
+    align-self: flex-end;
+  }
+}
