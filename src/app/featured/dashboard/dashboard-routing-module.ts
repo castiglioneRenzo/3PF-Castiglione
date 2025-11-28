@@ -21,13 +21,11 @@ const routes: Routes = [
       {
         path: 'students',
         loadChildren: () => import('./students/students-module').then((m) => m.StudentsModule),
-        canActivate: [adminGuard],
       },
       {
         path: 'enrollments',
         loadChildren: () =>
           import('./enrollments/enrollments.module').then((m) => m.EnrollmentsModule),
-        canActivate: [adminGuard],
       },
       {
         path: 'users',
