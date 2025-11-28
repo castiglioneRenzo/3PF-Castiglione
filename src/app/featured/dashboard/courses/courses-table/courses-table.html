@@ -1,9 +1,7 @@
 <div class="header-row">
-  @if (isAdmin()) {
-  <div class="button-column">
+  <div class="button-column" *ngIf="isAdmin$ | async">
     <button id="create" mat-flat-button color="primary" routerLink="create">Crear Curso</button>
   </div>
-  }
   <div class="filter-column">
     <mat-form-field>
       <mat-label>Filter</mat-label>
@@ -55,12 +53,14 @@
         <button mat-icon-button color="accent" matTooltip="Ver detalle" [routerLink]="[row.id]">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button color="primary" matTooltip="Editar" routerLink="edit/{{ row.id }}">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" matTooltip="Eliminar" (click)="onDeleteCourse(row.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <ng-container *ngIf="isAdmin$ | async">
+          <button mat-icon-button color="primary" matTooltip="Editar" routerLink="edit/{{ row.id }}">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Eliminar" (click)="onDeleteCourse(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
       </td>
     </ng-container>
 

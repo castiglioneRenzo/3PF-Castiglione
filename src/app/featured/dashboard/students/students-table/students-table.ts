@@ -2,9 +2,11 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Student } from '../../../../core/models/student.model';
 import * as StudentsActions from '../../../../store/students/students.actions';
 import { selectAllStudents, selectStudentsLoading } from '../../../../store/students/students.selectors';
+import { selectIsAdmin } from '../../../../store/auth/auth.selectors';
 
 const studentColumns: string[] = [
   'id',
@@ -26,11 +28,13 @@ export class StudentsTable implements OnInit {
   displayedColumns: string[] = studentColumns;
   dataSource = new MatTableDataSource<Student>([]);
   isLoading$;
+  isAdmin$: Observable<boolean>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private readonly store: Store) {
     this.isLoading$ = this.store.select(selectStudentsLoading);
+    this.isAdmin$ = this.store.select(selectIsAdmin);
     this.store.select(selectAllStudents).subscribe(students => {
       this.dataSource.data = students;
       if (this.paginator) {

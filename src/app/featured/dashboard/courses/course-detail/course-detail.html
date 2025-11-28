@@ -16,7 +16,7 @@
     <mat-card class="course-info">
       <mat-card-header>
         <mat-card-title>Información del Curso</mat-card-title>
-        <div class="header-actions">
+        <div class="header-actions" *ngIf="isAdmin$ | async">
           <button 
             mat-raised-button 
             color="primary" 

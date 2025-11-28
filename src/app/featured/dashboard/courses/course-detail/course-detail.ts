@@ -16,6 +16,7 @@ import {
 } from '../../../../store/courses/courses.selectors';
 import { selectAllStudents } from '../../../../store/students/students.selectors';
 import { selectAllEnrollments } from '../../../../store/enrollments/enrollments.selectors';
+import { selectIsAdmin } from '../../../../store/auth/auth.selectors';
 
 interface EnrollmentDetail {
   enrollment: Enrollment;
@@ -33,6 +34,7 @@ export class CourseDetail implements OnInit, OnDestroy {
   loading$: Observable<boolean>;
   enrollmentDetails$!: Observable<EnrollmentDetail[]>;
   totalStudents$!: Observable<number>;
+  isAdmin$: Observable<boolean>;
   
   displayedColumns: string[] = ['studentName', 'studentEmail', 'enrollmentDate'];
   
@@ -44,6 +46,7 @@ export class CourseDetail implements OnInit, OnDestroy {
     private store: Store
   ) {
     this.loading$ = this.store.select(selectCoursesLoading);
+    this.isAdmin$ = this.store.select(selectIsAdmin);
   }
 
   ngOnInit(): void {

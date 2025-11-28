@@ -1,11 +1,12 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Course } from '../../../../core/models/course.model';
 import * as CoursesActions from '../../../../store/courses/courses.actions';
 import { selectAllCourses, selectCoursesLoading } from '../../../../store/courses/courses.selectors';
+import { selectIsAdmin } from '../../../../store/auth/auth.selectors';
 
 const courseColumns: string[] = [
   'id',
@@ -28,14 +29,13 @@ export class CoursesTable implements OnInit {
   displayedColumns: string[] = courseColumns;
   dataSource = new MatTableDataSource<Course>([]);
   isLoading$;
+  isAdmin$: Observable<boolean>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private readonly store: Store, private authService: AuthService) {
+  constructor(private readonly store: Store) {
     this.isLoading$ = this.store.select(selectCoursesLoading);
-  }
-  isAdmin(): boolean {
-    return this.authService.isAdmin();
+    this.isAdmin$ = this.store.select(selectIsAdmin);
   }
 
   ngOnInit(): void {
