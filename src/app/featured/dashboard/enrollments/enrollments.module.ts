@@ -10,15 +10,19 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { EnrollmentsComponent } from './enrollments.component';
+import { EnrollmentFormComponent } from './enrollment-form/enrollment-form.component';
 
 const routes: Routes = [
   { path: '', component: EnrollmentsComponent },
+  { path: 'new', component: EnrollmentFormComponent },
+  { path: ':id/edit', component: EnrollmentFormComponent },
 ];
 
 @NgModule({
-  declarations: [EnrollmentsComponent],
+  declarations: [EnrollmentsComponent, EnrollmentFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -30,6 +34,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
   ],
 })
 export class EnrollmentsModule {}

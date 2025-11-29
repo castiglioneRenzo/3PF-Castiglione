@@ -2,5 +2,13 @@
   <button mat-icon-button (click)="onMenuToggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span titleSize>Sistema de Gestión de Alumnos</span>
+  <span class="page-title" titleSize>{{ (pageTitle$ | async) || 'Sistema de Gestión' }}</span>
+  <span class="spacer"></span>
+  <div class="user-info">
+    <mat-icon>account_circle</mat-icon>
+    <div class="user-details">
+      <span class="user-name">{{ userFullName$ | async }}</span>
+      <span class="user-email">{{ userEmail$ | async }}</span>
+    </div>
+  </div>
 </mat-toolbar>

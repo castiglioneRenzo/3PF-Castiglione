@@ -55,7 +55,20 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let enrollment">
-            <button mat-icon-button color="warn" (click)="onDelete(enrollment.id)">
+            <button 
+              mat-icon-button 
+              color="primary" 
+              [routerLink]="[enrollment.id, 'edit']"
+              matTooltip="Editar inscripción"
+              *ngIf="isAdmin$ | async">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button 
+              mat-icon-button 
+              color="warn" 
+              (click)="onDelete(enrollment.id)"
+              matTooltip="Eliminar inscripción"
+              *ngIf="isAdmin$ | async">
               <mat-icon>delete</mat-icon>
             </button>
           </td>

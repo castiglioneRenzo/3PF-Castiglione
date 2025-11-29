@@ -1,5 +1,5 @@
 <div class="header-row">
-  <div class="button-column">
+  <div class="button-column" *ngIf="isAdmin$ | async">
     <button id="create" mat-flat-button color="primary" routerLink="create">
       Crear Estudiante
     </button>
@@ -47,12 +47,17 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button matTooltip="Editar" routerLink="edit/{{ row.id }}">
-          <mat-icon>edit</mat-icon>
+        <button mat-icon-button color="accent" matTooltip="Ver detalle" [routerLink]="[row.id]">
+          <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Eliminar" (click)="onDeleteStudent(row.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <ng-container *ngIf="isAdmin$ | async">
+          <button mat-icon-button color="primary" matTooltip="Editar" routerLink="edit/{{ row.id }}">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Eliminar" (click)="onDeleteStudent(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
       </td>
     </ng-container>
 

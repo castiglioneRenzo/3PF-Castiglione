@@ -23,5 +23,5 @@ export const selectActiveCourses = createSelector(
   (courses) => courses.filter((c) => c.active)
 );
 
-export const selectCourseById = (id: number) =>
-  createSelector(selectAllCourses, (courses) => courses.find((c) => c.id === id));
+export const selectCourseById = (id: number | string) =>
+  createSelector(selectAllCourses, (courses) => courses.find((c) => String(c.id) === String(id)));

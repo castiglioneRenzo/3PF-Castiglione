@@ -33,7 +33,7 @@ export const createStudentFailure = createAction(
 // Update Student
 export const updateStudent = createAction(
   '[Students] Update Student',
-  props<{ id: number; student: UpdateStudentDto }>()
+  props<{ id: number | string; student: UpdateStudentDto }>()
 );
 
 export const updateStudentSuccess = createAction(
@@ -49,12 +49,12 @@ export const updateStudentFailure = createAction(
 // Delete Student
 export const deleteStudent = createAction(
   '[Students] Delete Student',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteStudentSuccess = createAction(
   '[Students] Delete Student Success',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteStudentFailure = createAction(

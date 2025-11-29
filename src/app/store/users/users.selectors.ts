@@ -13,8 +13,8 @@ export const selectActiveUsers = createSelector(selectAllUsers, (users) =>
   users.filter((u) => u.active)
 );
 
-export const selectUserById = (id: number) =>
-  createSelector(selectAllUsers, (users) => users.find((u) => u.id === id));
+export const selectUserById = (id: number | string) =>
+  createSelector(selectAllUsers, (users) => users.find((u) => String(u.id) === String(id)));
 
 export const selectAdminUsers = createSelector(selectAllUsers, (users) =>
   users.filter((u) => u.role === 'admin')

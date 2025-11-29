@@ -33,3 +33,8 @@ export const selectActiveEnrollments = createSelector(
   selectAllEnrollments,
   (enrollments) => enrollments.filter((e) => e.status === 'active')
 );
+
+export const selectEnrollmentById = (id: number | string) =>
+  createSelector(selectAllEnrollments, (enrollments) =>
+    enrollments.find((e) => String(e.id) === String(id))
+  );

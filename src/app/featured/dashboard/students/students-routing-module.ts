@@ -4,6 +4,8 @@ import { Students } from './students';
 import { StudentsTable } from './students-table/students-table';
 import { StudentsForm } from './students-form/students-form';
 
+import { StudentDetail } from './student-detail/student-detail';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +18,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: StudentsForm,
+      },
+      {
+        path: ':id',
+        component: StudentDetail,
       },
       {
         path: 'edit/:id',

@@ -15,7 +15,7 @@ export class CoursesService {
     return this.http.get<Course[]>(this.API_URL);
   }
 
-  getById(id: number): Observable<Course> {
+  getById(id: number | string): Observable<Course> {
     return this.http.get<Course>(`${this.API_URL}/${id}`);
   }
 
@@ -27,11 +27,11 @@ export class CoursesService {
     return this.http.post<Course>(this.API_URL, newCourse);
   }
 
-  update(id: number, course: UpdateCourseDto): Observable<Course> {
+  update(id: number | string, course: UpdateCourseDto): Observable<Course> {
     return this.http.patch<Course>(`${this.API_URL}/${id}`, course);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: number | string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }

@@ -39,7 +39,8 @@ export class DashboardComponent {
       name: 'Usuarios',
       description: 'Administer user accounts and permissions within the platform.',
       url: '/dashboard/users',
-      icon: 'manage_accounts'
+      icon: 'manage_accounts',
+      adminOnly: true
     }
     
   ]

@@ -33,7 +33,7 @@ export const createCourseFailure = createAction(
 // Update Course
 export const updateCourse = createAction(
   '[Courses] Update Course',
-  props<{ id: number; course: UpdateCourseDto }>()
+  props<{ id: number | string; course: UpdateCourseDto }>()
 );
 
 export const updateCourseSuccess = createAction(
@@ -49,12 +49,12 @@ export const updateCourseFailure = createAction(
 // Delete Course
 export const deleteCourse = createAction(
   '[Courses] Delete Course',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteCourseSuccess = createAction(
   '[Courses] Delete Course Success',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteCourseFailure = createAction(

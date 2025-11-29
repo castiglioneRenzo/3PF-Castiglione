@@ -30,7 +30,7 @@ export const createUserFailure = createAction(
 // Update User
 export const updateUser = createAction(
   '[Users] Update User',
-  props<{ id: number; user: Partial<User> }>()
+  props<{ id: number | string; user: Partial<User> }>()
 );
 
 export const updateUserSuccess = createAction(
@@ -44,11 +44,11 @@ export const updateUserFailure = createAction(
 );
 
 // Delete User
-export const deleteUser = createAction('[Users] Delete User', props<{ id: number }>());
+export const deleteUser = createAction('[Users] Delete User', props<{ id: number | string }>());
 
 export const deleteUserSuccess = createAction(
   '[Users] Delete User Success',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 
 export const deleteUserFailure = createAction(

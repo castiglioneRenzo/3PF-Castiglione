@@ -1,0 +1,149 @@
+<div class="student-detail-container">
+  <div class="header">
+    <button mat-icon-button (click)="onBack()" matTooltip="Volver a la lista">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2>Detalle del Estudiante</h2>
+  </div>
+
+  <div *ngIf="loading$ | async" class="loading">
+    <mat-spinner></mat-spinner>
+    <p>Cargando información...</p>
+  </div>
+
+  <div *ngIf="student$ | async as student; else notFound">
+    <!-- Información del estudiante -->
+    <mat-card class="student-info">
+      <mat-card-header>
+        <mat-card-title>Información Personal</mat-card-title>
+        <div class="header-actions" *ngIf="isAdmin$ | async">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="onEdit(student.id)"
+          >
+            <mat-icon>edit</mat-icon>
+            Editar
+          </button>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="info-grid">
+          <div class="info-item">
+            <mat-icon>badge</mat-icon>
+            <div>
+              <span class="label">ID:</span>
+              <span class="value">{{ student.id }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>person</mat-icon>
+            <div>
+              <span class="label">Nombre completo:</span>
+              <span class="value">{{ student.firstName }} {{ student.lastName }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <div>
+              <span class="label">Email:</span>
+              <span class="value">{{ student.email }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>cake</mat-icon>
+            <div>
+              <span class="label">Fecha de nacimiento:</span>
+              <span class="value">{{ student.birthDate | date: 'dd/MM/yyyy' }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>home</mat-icon>
+            <div>
+              <span class="label">Dirección:</span>
+              <span class="value">{{ student.address }}</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <mat-icon>phone</mat-icon>
+            <div>
+              <span class="label">Teléfono:</span>
+              <span class="value">{{ student.phone }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Cursos inscritos -->
+    <mat-card class="courses-card">
+      <mat-card-header>
+        <mat-card-title>Cursos Inscritos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="enrollmentDetails$ | async as enrollmentDetails">
+          <div *ngIf="enrollmentDetails.length > 0; else noCourses">
+            <table mat-table [dataSource]="enrollmentDetails" class="mat-elevation-z2">
+              <ng-container matColumnDef="courseName">
+                <th mat-header-cell *matHeaderCellDef>Nombre del Curso</th>
+                <td mat-cell *matCellDef="let detail">
+                  <div class="course-name">
+                    <mat-icon color="primary">school</mat-icon>
+                    {{ detail.course.name }}
+                  </div>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="courseCode">
+                <th mat-header-cell *matHeaderCellDef>Código</th>
+                <td mat-cell *matCellDef="let detail">
+                  <span class="course-code">{{ detail.course.code }}</span>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="enrollmentDate">
+                <th mat-header-cell *matHeaderCellDef>Fecha de Inscripción</th>
+                <td mat-cell *matCellDef="let detail">
+                  {{ detail.enrollment.enrollmentDate | date: 'dd/MM/yyyy' }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <div class="summary">
+              <mat-icon>info</mat-icon>
+              <span>Total de cursos inscritos: <strong>{{ enrollmentDetails.length }}</strong></span>
+            </div>
+          </div>
+
+          <ng-template #noCourses>
+            <div class="no-data">
+              <mat-icon>school_off</mat-icon>
+              <p>Este estudiante aún no está inscrito en ningún curso</p>
+            </div>
+          </ng-template>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #notFound>
+    <mat-card class="not-found">
+      <mat-card-content>
+        <mat-icon>error_outline</mat-icon>
+        <h3>Estudiante no encontrado</h3>
+        <p>No se encontró información del estudiante solicitado</p>
+        <button mat-raised-button color="primary" (click)="onBack()">
+          Volver a la lista
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+</div>

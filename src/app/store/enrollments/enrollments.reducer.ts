@@ -55,7 +55,7 @@ export const enrollmentsReducer = createReducer(
   })),
   on(EnrollmentsActions.updateEnrollmentSuccess, (state, { enrollment }) => ({
     ...state,
-    enrollments: state.enrollments.map((e) => (e.id === enrollment.id ? enrollment : e)),
+    enrollments: state.enrollments.map((e) => (String(e.id) === String(enrollment.id) ? enrollment : e)),
     loading: false,
     error: null,
   })),
@@ -71,7 +71,7 @@ export const enrollmentsReducer = createReducer(
   })),
   on(EnrollmentsActions.deleteEnrollmentSuccess, (state, { id }) => ({
     ...state,
-    enrollments: state.enrollments.filter((e) => e.id !== id),
+    enrollments: state.enrollments.filter((e) => String(e.id) !== String(id)),
     loading: false,
     error: null,
   })),

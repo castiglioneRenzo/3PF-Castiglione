@@ -1,7 +1,7 @@
 export type UserRole = 'admin' | 'user';
 
 export interface User {
-  id: number;
+  id: number | string;
   email: string;
   password?: string; // No se debe enviar al frontend en producción
   firstName: string;
@@ -17,7 +17,7 @@ export interface LoginCredentials {
 }
 
 export interface AuthUser {
-  id: number;
+  id: number | string;
   email: string;
   firstName: string;
   lastName: string;
