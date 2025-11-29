@@ -51,3 +51,7 @@ Después del login, verás el menú lateral con:
 1. Ir a **Alumnos** - Solo ver (sin botones de ABM)
 2. Ir a **Cursos** - Solo ver (sin botones de ABM)
 3. **Usuarios** - Opción no disponible en el menú
+
+.
+
+---
